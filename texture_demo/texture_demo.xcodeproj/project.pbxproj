@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B47AA03E0BC223DC598EC87 /* Pods_texture_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F474CCDCA44F3104C8C11138 /* Pods_texture_demo.framework */; };
+		7B6B63122198271F00A1F231 /* HN_NormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6B63112198271F00A1F231 /* HN_NormalViewController.swift */; };
 		B605A4C8218844DA00DD1F8F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605A4C7218844DA00DD1F8F /* FirstViewController.swift */; };
 		B65DB23D21894C8200719A6B /* FirstDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DB23C21894C8200719A6B /* FirstDisplayNode.swift */; };
 		B6BADB092186DC3F00EB60FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BADB082186DC3F00EB60FD /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2DD66BA6D785EC67B0280FDD /* Pods-texture_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-texture_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-texture_demo/Pods-texture_demo.release.xcconfig"; sourceTree = "<group>"; };
+		7B6B63112198271F00A1F231 /* HN_NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HN_NormalViewController.swift; sourceTree = "<group>"; };
 		B605A4C7218844DA00DD1F8F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		B65DB23C21894C8200719A6B /* FirstDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDisplayNode.swift; sourceTree = "<group>"; };
 		B6BADB052186DC3F00EB60FD /* texture_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = texture_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				B6F20E192195356200496CCF /* ADCollectionViewController.swift */,
 				B6F20E1B2195394200496CCF /* CustomCellNode.swift */,
 				B6F20E1D219551DF00496CCF /* CustomCollectionNode.swift */,
+				7B6B63112198271F00A1F231 /* HN_NormalViewController.swift */,
 				B6F20E1F219595A300496CCF /* HotListFooterView.swift */,
 				B6BADB0C2186DC3F00EB60FD /* Main.storyboard */,
 				B6BADB0F2186DC4100EB60FD /* Assets.xcassets */,
@@ -361,6 +364,7 @@
 				B6BADB092186DC3F00EB60FD /* AppDelegate.swift in Sources */,
 				B6F20E1C2195394200496CCF /* CustomCellNode.swift in Sources */,
 				B6F20E1A2195356200496CCF /* ADCollectionViewController.swift in Sources */,
+				7B6B63122198271F00A1F231 /* HN_NormalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
