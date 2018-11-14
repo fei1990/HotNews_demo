@@ -23,7 +23,7 @@ class HN_NormalViewController: ASViewController<ASDisplayNode> {
     
     var index: Int = 1
     
-    var timer: Timer!
+    var timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
 
     var bkgNode: ASDisplayNode = ASDisplayNode()
     
@@ -65,13 +65,15 @@ class HN_NormalViewController: ASViewController<ASDisplayNode> {
         
         subNodeDefaultFrame()
         
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.timerAction(timer:)), userInfo: nil, repeats: true)
+        timer.schedule(wallDeadline: .now() + 3, repeating: 3)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            
-//
-//        }
-
+        timer.setEventHandler { [weak self] in
+            DispatchQueue.main.async {
+                self?.timerAction()
+            }
+            
+        }
+        timer.resume()
     }
     
 
@@ -92,10 +94,8 @@ class HN_NormalViewController: ASViewController<ASDisplayNode> {
         
     }
     
-    @objc func timerAction(timer: Timer) {
+    @objc func timerAction() {
         
-//        let flag = (self.index == self.txtList.count)
-//        print(flag)
         UIView.animate(withDuration: 0.5, animations: {
 
             self.displayNode.alpha = 0
