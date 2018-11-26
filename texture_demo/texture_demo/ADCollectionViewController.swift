@@ -28,6 +28,8 @@ let imgNodeW: CGFloat = scrollNodeW - subNodepadding
 
 let imgNodeH: CGFloat = scrollNodeH - 40
 
+let imgCount: Int = 1
+
 class ADCollectionViewController: UIViewController {
 
     var hotScrollNode: ASScrollNode!
@@ -64,7 +66,7 @@ class ADCollectionViewController: UIViewController {
         
         hotScrollNode.clipsToBounds = false
         
-        for i in 0..<5 {
+        for i in 0..<imgCount {
             
             let imgNode = ASImageNode()
             imgNode.frame = CGRect(x: (CGFloat(i) * imgNodeW + CGFloat(i) * subNodepadding), y: imgNode_y, width: imgNodeW, height: imgNodeH)
@@ -77,10 +79,18 @@ class ADCollectionViewController: UIViewController {
         
         self.view.addSubnode(hotScrollNode)
         
-        hotScrollNode.view.contentSize = CGSize(width: scrollNodeW * 5 - subNodepadding, height: imgNodeH)
-        
         footerView = HotListFooterView()
-        footerView.frame = CGRect(x: hotScrollNode.view.contentSize.width, y: imgNode_y, width: 2000, height: imgNodeH)
+        
+        if imgCount == 1 {
+            hotScrollNode.view.contentSize = CGSize(width: scrollNodeW + 1, height: imgNodeH)
+            footerView.frame = CGRect(x: hotScrollNode.view.contentSize.width + scrollNode_margin + subNodepadding, y: imgNode_y, width: 2000, height: imgNodeH)
+        }else {
+            hotScrollNode.view.contentSize = CGSize(width: scrollNodeW * CGFloat(imgCount) - subNodepadding, height: imgNodeH)
+            footerView.frame = CGRect(x: hotScrollNode.view.contentSize.width + scrollNode_margin, y: imgNode_y, width: 2000, height: imgNodeH)
+        }
+        
+        
+        
         footerView.backgroundColor = UIColor.purple
         let node = ASDisplayNode { () -> UIView in
             return self.footerView
@@ -98,17 +108,20 @@ extension ADCollectionViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView.contentOffset.x > 10 && scrollView.contentOffset.x < 50 {
-            UIView.animate(withDuration: 0.2) {
-                self.hotScrollNode.frame = CGRect(x: scrollNode_x + subNodepadding, y: scrollNode_y, width: scrollNodeW, height: scrollNodeH)
+        if imgCount > 1 {
+            if scrollView.contentOffset.x > 10 && scrollView.contentOffset.x < 50 {
+                UIView.animate(withDuration: 0.2) {
+                    self.hotScrollNode.frame = CGRect(x: scrollNode_x + subNodepadding, y: scrollNode_y, width: scrollNodeW, height: scrollNodeH)
+                }
+            }
+            
+            if scrollView.contentOffset.x <= 10 && scrollView.contentOffset.x >= 0 {
+                UIView.animate(withDuration: 0.2) {
+                    self.hotScrollNode.frame = CGRect(x: scrollNode_x, y: scrollNode_y, width: scrollNodeW, height: scrollNodeH)
+                }
             }
         }
         
-        if scrollView.contentOffset.x <= 10 && scrollView.contentOffset.x >= 0 {
-            UIView.animate(withDuration: 0.2) {
-                self.hotScrollNode.frame = CGRect(x: scrollNode_x, y: scrollNode_y, width: scrollNodeW, height: scrollNodeH)
-            }
-        }
         
         print("offset : \(scrollView.contentOffset.x)")
         print(scrollView.contentSize.width)
