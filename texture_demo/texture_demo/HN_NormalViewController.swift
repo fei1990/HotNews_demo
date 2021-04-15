@@ -15,7 +15,7 @@ let subNodeX: CGFloat = 50
 let displayNodeY: CGFloat = 20
 let reuseNodeY: CGFloat = 50
 
-class HN_NormalViewController: ASViewController<ASDisplayNode> {
+class HN_NormalViewController: ASDKViewController<ASDisplayNode> {
     deinit {
         print("HN_NormalViewController deinit........")
     }

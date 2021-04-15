@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class FirstViewController: ASViewController<ASDisplayNode> {
+class FirstViewController: ASDKViewController<ASDisplayNode> {
 
     let tableNode = ASTableNode()
     
@@ -25,7 +25,7 @@ class FirstViewController: ASViewController<ASDisplayNode> {
         
     }
     
-    init() {
+    override init() {
         
         super.init(node: FirstDisplayNode())
         
